@@ -43,14 +43,8 @@ public class Register extends GenericServlet {
 		e.printStackTrace();
 	   }
 	   if(con!=null)
-	   	{
-	   	return true;	
-	   		
-	   	}
-	   	else
-	   		return false;
-	    
-   
+	   	{return true;}else	return false;
+	      
    } 
 
 	@Override
@@ -58,14 +52,9 @@ public class Register extends GenericServlet {
 		
 		RequestDispatcher view = request.getRequestDispatcher("Login.html");
 		if(connector())
-		{
-		view.forward(request, response);
-		}
+		{view.forward(request, response);}
 		else
-		{
-			System.out.println("\n\tConnection Failed");
-		}
-		
+		{System.out.println("\n\tConnection Failed");}
 	}
 
 }
