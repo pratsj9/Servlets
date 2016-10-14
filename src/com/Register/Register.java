@@ -1,7 +1,9 @@
 package com.Register;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
+
 
 import javax.servlet.GenericServlet;
 import javax.servlet.RequestDispatcher;
@@ -20,6 +22,10 @@ import org.apache.catalina.startup.ContextConfig;
  */
 @WebServlet("/Register")
 public class Register extends GenericServlet {
+	RequestDispatcher view;
+	RequestDispatcher fw;
+	PrintWriter out;
+	
       
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,32 +35,33 @@ public class Register extends GenericServlet {
         // TODO Auto-generated constructor stub
     }
     
-   public boolean connector()
-   {
-	   ServletContext ctx=getServletConfig().getServletContext();
-	    Connection con=null;
-	   try {
-		   	Class.forName(ctx.getInitParameter("driver"));
-		   	con=DriverManager.getConnection(ctx.getInitParameter(("url")),ctx.getInitParameter("username"),ctx.getInitParameter("pass"));
-		   	System.out.println("\n\tConnection Establised");
-		   	} 
-	   catch (Exception e) 
-	   {
-		e.printStackTrace();
-	   }
-	   if(con!=null)
-	   	{return true;}else	return false;
-	      
-   } 
+  
 
 	@Override
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher view = request.getRequestDispatcher("Login.html");
-		if(connector())
-		{view.forward(request, response);}
+		 view = request.getRequestDispatcher("Login.html");
+		fw = request.getRequestDispatcher("Welcome.html");
+		out= response.getWriter();
+		view.include(request, response);
+		
+		if(request.getAttribute("usernm")!=null)
+		{	
+		fw.forward(request, response);}
+		
 		else
-		{System.out.println("\n\tConnection Failed");}
+		{
+			
+		}
+
+		 
+			
+		
+		
+		
+		
+		
+		
 	}
 
 }
