@@ -110,7 +110,7 @@ public class Welcome extends HttpServlet {
 			while(r.next())
 	   			{
 					username=r.getString(1);
-	   				out.println("	<li class='collection-item avatar'>"+"<i class='material-icons circle green'>account_circle</i>"
+	   				out.println("<li class='collection-item avatar'>"+"<i class='material-icons circle green'>account_circle</i>"
 					+"<span class='title'>Welcome</span>"
 					+"<p>"+username+"<br></p>"
 					+"<a href='#!' class='secondary-content'><i class='material-icons'>grade</i></a></li>"

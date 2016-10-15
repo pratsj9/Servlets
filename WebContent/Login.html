@@ -1,6 +1,8 @@
 <html>
 <body class="">
 
+	<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
    <!--Import jQuery before materialize.js-->
@@ -8,29 +10,53 @@
       <script type="text/javascript" src="js/materialize.min.js"></script>
    <!-- Compiled and minified JavaScript -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
 	<script type="text/javascript">
+	function validator()
+	{
+		console.log("Inside Validator");
+		var a = $('#name').val();
+		var b = $('#number').val();
+		console.log(a);
+		console.log(b);
+		if(a=="" || b=="")
+		{
+			console.log("values are empty");
+			
+		}
+		
+		
+		
+	}
 	</script>
 
+<nav>
+    <div class="nav-wrapper">
+                 <a href="#" class="brand-logo center"><i class="material-icons">add_shopping_cart</i>BookCart</a>
+    </div>
+  </nav>
+        
+
+<div class="container">
 <h1 align="center"> Login Page</h1>
-       <form class="col s6 blue lighten-4" method="post" action="/ServletDemo/Welcome">
+       <form class="col s6" name="login" method="post" action="/ServletDemo/Welcome">
 		<div class="row">
            <div class="input-field col s6">
-			<input id="first_name" type="text" name="usernm" class="validate">
-             <label for="first_name"> Username</label>
+			<input id="name" type="text" name="usernm" class="validate">
+             <label for="name"> Full Name</label>
            </div>
          </div>
          <div class="row">
            <div class="input-field col s6">
-             <input id="password" type="password" name="pass" class="validate">
-             <label for="last_name"> Password</label>
+             <input id="number" type="number" name="number" pattern="[0-9]{10} class="validate">
+             <label for="last_name"> Phone No</label>
            </div>
          </div>
          <div class="row">
-             <button class=" btn waves-effect waves-light" type="submit" name="action">Login</button>
+             &nbsp;&nbsp;<button class=" btn waves-effect waves-light" type="submit" name="action">Login</button>
+			<button class=" btn waves-effect waves-light" type="button" onclick="validator()" name="reg">Reset</button>
              </form>
-             <button class=" btn waves-effect waves-light" type="button" onclick="" name="reg">Register</button>
         </div>
+</div>
 
 </body>
 </html>
